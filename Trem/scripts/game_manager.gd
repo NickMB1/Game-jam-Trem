@@ -7,7 +7,7 @@ extends Node3D
 @export var speed_increase_amount: float = 0.8
 @export var speed_decrease_amount: float = 0.6
 
-const ClickButtonScene := preload("res://scenes/click_button.tscn")
+const ClickButtonScene := preload("res://Cenas/click_button.tscn")
 
 @onready var train: Node3D = $World/Train
 @onready var camera: Camera3D = $World/Train/Camera
