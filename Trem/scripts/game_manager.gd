@@ -7,7 +7,7 @@ extends Node3D
 @export var speed_increase_amount: float = 0.8
 @export var speed_decrease_amount: float = 0.6
 
-const ClickButtonScene := preload("res://scenes/click_button.tscn")
+const ClickButtonScene := preload("uid://crlwd1otwud3c")
 
 @onready var train: Node3D = $World/Train
 @onready var camera: Camera3D = $World/Train/Camera
@@ -19,8 +19,6 @@ const ClickButtonScene := preload("res://scenes/click_button.tscn")
 @onready var button_layer: Control = $UI/HUD/ButtonLayer
 @onready var result_label: Label = $UI/HUD/ResultLabel
 @onready var restart_button: Button = $UI/HUD/RestartButton
-@onready var start_panel: Control = $UI/HUD/StartPanel
-@onready var start_button: Button = $UI/HUD/StartPanel/StartButton
 
 var time_left: float = 0.0
 var game_active: bool = false
@@ -31,11 +29,11 @@ func _ready() -> void:
 	camera.look_at(train.global_position + Vector3(10.0, 0.0, 0.0))
 	spawn_timer.wait_time = button_spawn_interval
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	start_button.pressed.connect(_on_start_pressed)
 	restart_button.pressed.connect(_on_restart_pressed)
 	result_label.visible = false
 	restart_button.visible = false
 	_update_hud()
+	_start_match()
 
 func _process(delta: float) -> void:
 	if not game_active:
@@ -52,10 +50,6 @@ func _process(delta: float) -> void:
 
 	if time_left <= 0.0:
 		_end_match(false)
-
-func _on_start_pressed() -> void:
-	start_panel.visible = false
-	_start_match()
 
 func _start_match() -> void:
 	time_left = match_duration
