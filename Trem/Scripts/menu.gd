@@ -15,4 +15,4 @@ func _on_credits_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	pass
+	get_tree().quit()
