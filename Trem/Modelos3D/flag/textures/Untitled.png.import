@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxesr03v4uhs1"
-path="res://.godot/imported/TremGamejam.jpg-22b9e681947cd6f6f6444bcad2e15a8c.ctex"
+uid="uid://cfspw4c4dw8th"
+path="res://.godot/imported/Untitled.png-4a3b60e50ea9e0dea258eecd95621ae5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Modelos3D/TremGamejam.jpg"
-dest_files=["res://.godot/imported/TremGamejam.jpg-22b9e681947cd6f6f6444bcad2e15a8c.ctex"]
+source_file="res://Modelos3D/flag/textures/Untitled.png"
+dest_files=["res://.godot/imported/Untitled.png-4a3b60e50ea9e0dea258eecd95621ae5.ctex"]
 
 [params]
 
