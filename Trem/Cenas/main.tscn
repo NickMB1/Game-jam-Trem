@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://2wrwt0wqfsvy"]
+[gd_scene load_steps=9 format=3 uid="uid://dvmq0fhbdgwn2"]
 
 [ext_resource type="Script" uid="uid://bhexpqpcvt3ue" path="res://Scripts/game_manager.gd" id="1_ruij7"]
-[ext_resource type="Script" uid="uid://cstlcgheee0ga" path="res://Scripts/train.gd" id="2_lb8y5"]
+[ext_resource type="Script" path="res://Scripts/train.gd" id="2_lb8y5"]
 [ext_resource type="PackedScene" uid="uid://do7bn1daf3358" path="res://Modelos3D/Trem/source/Locomotive LK 14 - Red.fbx" id="3_ja1os"]
 
 [sub_resource type="Environment" id="Environment_sky"]

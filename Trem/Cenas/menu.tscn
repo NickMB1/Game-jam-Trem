@@ -47,11 +47,6 @@ position = Vector2(796, 329)
 scale = Vector2(0.432617, 0.4375)
 texture = ExtResource("1_pveh2")
 
-[node name="Train Image2" type="Sprite2D" parent="."]
-position = Vector2(796, 329)
-scale = Vector2(0.432617, 0.4375)
-texture = ExtResource("1_pveh2")
-
 [connection signal="pressed" from="Container/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Container/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Container/ExitButton" to="." method="_on_exit_button_pressed"]
