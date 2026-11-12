@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dji7yxpbul8nt"]
+[gd_scene load_steps=3 format=3 uid="uid://dji7yxpbul8nt"]
 
 [ext_resource type="Script" uid="uid://bvcrjm0ek2xy5" path="res://Scripts/credits.gd" id="1_qyf1u"]
+[ext_resource type="Texture2D" uid="uid://trtrqjjmtxsb" path="res://Modelos2D/TremGamejam.jpg" id="2_p0fkl"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -18,9 +19,10 @@ color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
 [node name="CreditsText" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_top = 3.0
-offset_right = 1149.0
-offset_bottom = 62.0
+offset_left = 72.0
+offset_top = 19.0
+offset_right = 445.0
+offset_bottom = 78.0
 text = "Lead Programmer - Nicolas Belver
 Asset Finder & Programmer - Pedro Azambuja
 "
@@ -41,5 +43,10 @@ alignment = 1
 layout_mode = 2
 text = "Return
 "
+
+[node name="Train Image" type="Sprite2D" parent="."]
+position = Vector2(796, 329)
+scale = Vector2(0.432617, 0.4375)
+texture = ExtResource("2_p0fkl")
 
 [connection signal="pressed" from="Container/ReturnButton" to="." method="_on_return_button_pressed"]
