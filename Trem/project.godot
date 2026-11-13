@@ -15,6 +15,10 @@ run/main_scene="res://Cenas/menu.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Modelos2D/icon.svg"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

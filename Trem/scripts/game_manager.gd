@@ -8,6 +8,9 @@ extends Node3D
 @export var speed_decrease_amount: float = 0.6
 
 const ClickButtonScene := preload("uid://crlwd1otwud3c")
+const WHISTLE_SOUND_PATH := "res://SFX/Whistle.wav"
+const STEAM_SOUND_PATH := "res://SFX/Steam.wav"
+const LOSE_SOUND_PATH := "res://SFX/Lose.wav"
 
 @onready var train: Node3D = $World/Train
 @onready var camera: Camera3D = $World/Train/Camera
@@ -23,7 +26,14 @@ const ClickButtonScene := preload("uid://crlwd1otwud3c")
 var time_left: float = 0.0
 var game_active: bool = false
 
+var _whistle_player: AudioStreamPlayer
+var _steam_player: AudioStreamPlayer
+var _lose_player: AudioStreamPlayer
+
 func _ready() -> void:
+	_whistle_player = _make_sound_player(WHISTLE_SOUND_PATH)
+	_steam_player = _make_sound_player(STEAM_SOUND_PATH)
+	_lose_player = _make_sound_player(LOSE_SOUND_PATH)
 	# Câmera é filha do trem (segue ele por todo o trajeto); olha um pouco
 	# adiante para o jogador ver o caminho pela frente.
 	camera.look_at(train.global_position + Vector3(10.0, 0.0, 0.0))
@@ -61,6 +71,7 @@ func _start_match() -> void:
 	restart_button.visible = false
 	_clear_buttons()
 	_update_hud()
+	_whistle_player.play()
 
 func _end_match(won: bool) -> void:
 	game_active = false
@@ -70,6 +81,10 @@ func _end_match(won: bool) -> void:
 	result_label.text = "Você chegou a tempo!" if won else "O trem não chegou a tempo..."
 	result_label.visible = true
 	restart_button.visible = true
+	if won:
+		_steam_player.play()
+	else:
+		_lose_player.play()
 
 func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
@@ -101,6 +116,12 @@ func _on_button_resolved(success: bool) -> void:
 func _clear_buttons() -> void:
 	for child in button_layer.get_children():
 		child.queue_free()
+
+func _make_sound_player(path: String) -> AudioStreamPlayer:
+	var player := AudioStreamPlayer.new()
+	player.stream = load(path)
+	add_child(player)
+	return player
 
 func _update_hud() -> void:
 	time_label.text = "Tempo: %d s" % int(ceil(time_left))
